@@ -12,7 +12,7 @@
 *.user
 *.sln.docstates
 .vs/
-.packages/
+/packages/
 
 # Build results
 [Dd]ebug/
