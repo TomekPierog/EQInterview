@@ -19,12 +19,21 @@ namespace Interview.Controllers
             _transactions = _transactionRepository.Transactions();
         }
 
+        /// <summary>
+        /// Provides all transactions
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(_transactions);
         }
 
+        /// <summary>
+        /// Provides specific transaction
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IHttpActionResult Get([FromUri] Guid id)
         {
@@ -35,6 +44,11 @@ namespace Interview.Controllers
             return Ok(transaction);
         }
 
+        /// <summary>
+        /// Adds new tranaction
+        /// </summary>
+        /// <param name="transactionBase"></param>
+        /// <returns></returns>
         [HttpPost]
         public IHttpActionResult Post([FromBody] TransactionBase transactionBase)
         {
@@ -52,6 +66,12 @@ namespace Interview.Controllers
             return Content(HttpStatusCode.Accepted, transaction);
         }
 
+        /// <summary>
+        /// Updates specific transaction
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="transactionBase"></param>
+        /// <returns></returns>
         [HttpPut]
         public IHttpActionResult Put([FromUri] Guid id, [FromBody]TransactionBase transactionBase)
         {
@@ -67,6 +87,11 @@ namespace Interview.Controllers
             return Ok(existingTransaction);
         }
 
+        /// <summary>
+        /// Removes specific transaction
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public IHttpActionResult Delete([FromUri] Guid id)
         {
