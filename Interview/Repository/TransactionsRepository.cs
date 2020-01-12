@@ -22,5 +22,9 @@ namespace Interview.Repository
         }
 
         public List<Transaction> Transactions() => _transactions;
+        public void SaveChanges()
+        {
+            File.WriteAllText(_dataFilePath, JsonConvert.SerializeObject(_transactions, Formatting.Indented));
+        }
     }
 }
